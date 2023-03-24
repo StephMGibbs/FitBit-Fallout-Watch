@@ -7,3 +7,6 @@ Using Node.js and NVM for windows to switch to Node version 14:
     https://github.com/coreybutler/nvm-windows/releases/tag/1.1.10
     
 Built using FitBit SDK simulator, for a versa 3 device.
+
+Sources for my version of the background image:
+    https://images.app.goo.gl/B2hAVLxYHTurisZ66
