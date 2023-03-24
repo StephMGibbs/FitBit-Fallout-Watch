@@ -1,4 +1,4 @@
 <svg class="background">
-  <image href="fallout-fitbit.png" />
-  <text id="myLabel" />
+  <image href="fbsmall1.png" />
+  <text id="myTime" />
 </svg>

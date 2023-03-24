@@ -13,7 +13,7 @@ function zeroPad(i) {
 clock.granularity = "minutes";
 
 // Get a handle on the <text> element
-const myLabel = document.getElementById("myLabel");
+const myTime = document.getElementById("myTime");
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
@@ -27,5 +27,5 @@ clock.ontick = (evt) => {
         hours = zeroPad(hours);
     }
     let mins = zeroPad(today.getMinutes());
-    myLabel.text = `${hours}:${mins}`;
+    myTime.text = `${hours}:${mins}`;
 }
