@@ -93,6 +93,11 @@ clock.ontick = (evt) => {
         console.log(`Distance permission not shared by user`);
         myDistance.text = `---`;
     }
+
+    //BATTERY:
+    const myBattery = document.getElementById("myBattery");
+    let batLevel = Math.floor(battery.chargeLevel);
+    myBattery.text = `${batLevel}%`;
 }
 
 
@@ -112,8 +117,3 @@ if (HeartRateSensor) { //if device has a heart rate sensor, then get bpm
     console.log(`No heart rate detected.`);
     myBPM.text = `---`;
 }
-
-//BATTERY:
-const myBattery = document.getElementById("myBattery");
-let batLevel = Math.floor(battery.chargeLevel);
-myBattery.text = `${batLevel}%`;
