@@ -1,0 +1,74 @@
+.background {
+    viewport-fill: blue;
+}
+
+#myTime {
+    font-size: 60;
+    font-family: System-Regular;
+    text-length: 50;
+    text-anchor: middle;
+    x: 50%;
+    y: 15%;
+    fill: greenyellow;
+}
+
+#myDate {
+    font-size: 20;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 97%;
+    fill: greenyellow;
+}
+
+
+#myBPM {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 12%;
+    y: 22%;
+    fill: greenyellow;
+}
+
+#mySteps {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 75%;
+    y: 22%;
+    fill: greenyellow;
+}
+
+#myCals {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 15%;
+    y: 65%;
+    fill: greenyellow;
+}
+
+#myDistance {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 80%;
+    y: 65%;
+    fill: greenyellow;
+}
+
+#myBattery {
+    font-size: 25;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 49%;
+    y: 53%;
+    fill: greenyellow;
+}

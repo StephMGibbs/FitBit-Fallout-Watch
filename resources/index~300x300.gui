@@ -1,0 +1,10 @@
+<svg class="background">
+  <image href="fbsmall1.png" />
+  <text id="myTime" />
+  <text id="myDate" />
+  <text id="myBPM" />
+  <text id="mySteps" />
+  <text id="myCals" />
+  <text id="myDistance" />
+  <text id="myBattery" />
+</svg>
