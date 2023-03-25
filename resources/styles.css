@@ -11,3 +11,13 @@
     y: 15%;
     fill: greenyellow;
 }
+
+#myDate {
+    font-size: 20;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 97%;
+    fill: greenyellow;
+}

@@ -1,4 +1,5 @@
 <svg class="background">
   <image href="fbsmall1.png" />
   <text id="myTime" />
+  <text id="myDate" />
 </svg>
