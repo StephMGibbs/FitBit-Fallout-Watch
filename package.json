@@ -13,7 +13,12 @@
     "appDisplayName": "test-clock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
-    "requestedPermissions": [],
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_user_profile",
+      "access_activity",
+      "access_exercise"
+    ],
     "buildTargets": [
       "atlas",
       "vulcan"

@@ -21,3 +21,54 @@
     y: 97%;
     fill: greenyellow;
 }
+
+
+#myBPM {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 12%;
+    y: 22%;
+    fill: greenyellow;
+}
+
+#mySteps {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 40%;
+    fill: greenyellow;
+}
+
+#myCals {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 50%;
+    fill: greenyellow;
+}
+
+#myDistance {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 60%;
+    fill: greenyellow;
+}
+
+#myBattery {
+    font-size: 30;
+    font-family: System-Regular;
+    text-length: 80;
+    text-anchor: middle;
+    x: 50%;
+    y: 70%;
+    fill: greenyellow;
+}

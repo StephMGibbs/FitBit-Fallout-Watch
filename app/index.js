@@ -1,6 +1,7 @@
 import clock from "clock";
 import * as document from "document";
 import { preferences } from "user-settings";
+import { HeartRateSensor } from "heart-rate";
 
 //Method to convert time to 24 hour format
 function zeroPad(i) {
@@ -59,4 +60,22 @@ clock.ontick = (evt) => {
     let weekday = dayName(today.getDay());
     let parseDateArr = today.toString().split(' '); //0 = weekday, 1 = month, 2 = day, 3 = year, 4 = 24hr clock, 5 = timezone
     myDate.text = `${weekday} - ${parseDateArr[1]} ${parseDateArr[2]}`;
+}
+
+
+//Get the Battery life, BPM, Steps, Calories burned, & Distance travelled on foot
+
+//BPM:
+const myBPM = document.getElementById("myBPM");
+
+if (HeartRateSensor) { //if device has a heart rate sensor, then get bpm
+    let bpm = new HeartRateSensor({ frequency: 1 });
+    bpm.addEventListener("reading", () => {
+        console.log(`Current heart rate is: ${bpm.heartRate}`);
+        myBPM.text = `${bpm.heartRate}`;
+    });
+    bpm.start();
+} else { //put placeholder for no heart beat detected
+    console.log(`No heart rate detected.`);
+    myBPM.text = `---`;
 }
