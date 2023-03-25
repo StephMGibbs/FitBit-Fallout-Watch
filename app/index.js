@@ -102,6 +102,7 @@ const userActivity: any = {
 */
 
 
+//STEPS:
 const mySteps = document.getElementById("mySteps");
 if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
     console.log(`${today.adjusted.steps} Steps`);
@@ -109,5 +110,25 @@ if (appbit.permissions.granted("access_activity")) { //permission to get activit
 } else {
     console.log(`Steps permission not shared by user`);
     mySteps.text = `---`;
+}
+
+//CALS:
+const myCals = document.getElementById("myCals");
+if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+    console.log(`${today.adjusted.calories} Calories`);
+    myCals.text = `${today.adjusted.calories}`;
+} else {
+    console.log(`Steps permission not shared by user`);
+    myCals.text = `---`;
+}
+
+//DISTANCE:
+const myDistance = document.getElementById("myDistance");
+if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+    console.log(`${today.adjusted.distance} Distance Travelled`);
+    myDistance.text = `${today.adjusted.distance}m`; //meters
+} else {
+    console.log(`Distance permission not shared by user`);
+    myDistance.text = `---`;
 }
 
