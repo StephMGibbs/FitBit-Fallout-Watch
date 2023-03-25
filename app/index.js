@@ -1,7 +1,9 @@
 import clock from "clock";
 import * as document from "document";
-import { preferences } from "user-settings";
-import { HeartRateSensor } from "heart-rate";
+import { preferences } from "user-settings"; //get watch preferences for time & etc
+import { HeartRateSensor } from "heart-rate"; //get the bpm of the user 
+import { me as appbit } from "appbit"; //get user
+import { today } from "user-activity"; //get the steps/distance/calories of the user
 
 //Method to convert time to 24 hour format
 function zeroPad(i) {
@@ -44,8 +46,8 @@ const myDate = document.getElementById("myDate");
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
-    let today = evt.date;
-    let hours = today.getHours();
+    let todayDate = evt.date;
+    let hours = todayDate.getHours();
     if (preferences.clockDisplay === "12h") {
         // 12h format
         hours = hours % 12 || 12;
@@ -53,12 +55,12 @@ clock.ontick = (evt) => {
         // 24h format
         hours = zeroPad(hours);
     }
-    let mins = zeroPad(today.getMinutes());
+    let mins = zeroPad(todayDate.getMinutes());
     myTime.text = `${hours}:${mins}`;
 
     //will update the date regularly alongside clock. Uses evt
-    let weekday = dayName(today.getDay());
-    let parseDateArr = today.toString().split(' '); //0 = weekday, 1 = month, 2 = day, 3 = year, 4 = 24hr clock, 5 = timezone
+    let weekday = dayName(todayDate.getDay());
+    let parseDateArr = todayDate.toString().split(' '); //0 = weekday, 1 = month, 2 = day, 3 = year, 4 = 24hr clock, 5 = timezone
     myDate.text = `${weekday} - ${parseDateArr[1]} ${parseDateArr[2]}`;
 }
 
@@ -79,3 +81,33 @@ if (HeartRateSensor) { //if device has a heart rate sensor, then get bpm
     console.log(`No heart rate detected.`);
     myBPM.text = `---`;
 }
+
+//Steps, Distance, & Calories:
+/*
+const userActivity: any = {
+    calories: { name: "calories", unit: "Cal" },
+    steps: { name: "steps", unit: "" },
+    distance: { name: "distance", unit: "m" }
+};
+
+["local", "adjusted"].forEach(scope => {
+    console.log(`Activity(${scope}):`);
+    let activity: any = (today as any)[scope];
+    for (let i in userActivity) {
+        if ((activity as any)[i] !== undefined) {
+            console.log(` ${userActivity[i].name}: ${activity[i]} ${userActivity[i].unit}`);
+        }
+    }
+});
+*/
+
+
+const mySteps = document.getElementById("mySteps");
+if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+    console.log(`${today.adjusted.steps} Steps`);
+    mySteps.text = `${today.adjusted.steps}`;
+} else {
+    console.log(`Steps permission not shared by user`);
+    mySteps.text = `---`;
+}
+
