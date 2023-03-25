@@ -4,6 +4,7 @@ import { preferences } from "user-settings"; //get watch preferences for time & 
 import { HeartRateSensor } from "heart-rate"; //get the bpm of the user 
 import { me as appbit } from "appbit"; //get user
 import { today } from "user-activity"; //get the steps/distance/calories of the user
+import { battery } from "power"; //get the battery level of the device
 
 //Method to convert time to 24 hour format
 function zeroPad(i) {
@@ -82,26 +83,6 @@ if (HeartRateSensor) { //if device has a heart rate sensor, then get bpm
     myBPM.text = `---`;
 }
 
-//Steps, Distance, & Calories:
-/*
-const userActivity: any = {
-    calories: { name: "calories", unit: "Cal" },
-    steps: { name: "steps", unit: "" },
-    distance: { name: "distance", unit: "m" }
-};
-
-["local", "adjusted"].forEach(scope => {
-    console.log(`Activity(${scope}):`);
-    let activity: any = (today as any)[scope];
-    for (let i in userActivity) {
-        if ((activity as any)[i] !== undefined) {
-            console.log(` ${userActivity[i].name}: ${activity[i]} ${userActivity[i].unit}`);
-        }
-    }
-});
-*/
-
-
 //STEPS:
 const mySteps = document.getElementById("mySteps");
 if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
@@ -132,3 +113,8 @@ if (appbit.permissions.granted("access_activity")) { //permission to get activit
     myDistance.text = `---`;
 }
 
+
+//BATTERY:
+const myBattery = document.getElementById("myBattery");
+let batLevel = Math.floor(battery.chargeLevel);
+myBattery.text = `${batLevel}%`;

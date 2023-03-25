@@ -64,11 +64,11 @@
 }
 
 #myBattery {
-    font-size: 30;
+    font-size: 25;
     font-family: System-Regular;
     text-length: 80;
     text-anchor: middle;
-    x: 50%;
-    y: 70%;
+    x: 49%;
+    y: 53%;
     fill: greenyellow;
 }
