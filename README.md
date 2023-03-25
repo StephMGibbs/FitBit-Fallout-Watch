@@ -10,3 +10,9 @@ Built using FitBit SDK simulator, for a versa 3 device.
 
 Sources for my version of the background image:
     https://images.app.goo.gl/B2hAVLxYHTurisZ66
+    
+Source for how to get BPM from fitbit API:
+    https://dev.fitbit.com/build/reference/device-api/heart-rate/
+
+Source for how to get user activity:
+    https://dev.fitbit.com/build/reference/device-api/user-activity/
