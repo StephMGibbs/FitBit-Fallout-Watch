@@ -63,6 +63,36 @@ clock.ontick = (evt) => {
     let weekday = dayName(todayDate.getDay());
     let parseDateArr = todayDate.toString().split(' '); //0 = weekday, 1 = month, 2 = day, 3 = year, 4 = 24hr clock, 5 = timezone
     myDate.text = `${weekday} - ${parseDateArr[1]} ${parseDateArr[2]}`;
+
+    //STEPS:
+    const mySteps = document.getElementById("mySteps");
+    if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+        console.log(`${today.adjusted.steps} Steps`);
+        mySteps.text = `${today.adjusted.steps}`;
+    } else {
+        console.log(`Steps permission not shared by user`);
+        mySteps.text = `---`;
+    }
+
+    //CALS:
+    const myCals = document.getElementById("myCals");
+    if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+        console.log(`${today.adjusted.calories} Calories`);
+        myCals.text = `${today.adjusted.calories}`;
+    } else {
+        console.log(`Steps permission not shared by user`);
+        myCals.text = `---`;
+    }
+
+    //DISTANCE:
+    const myDistance = document.getElementById("myDistance");
+    if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
+        console.log(`${today.adjusted.distance} Distance Travelled`);
+        myDistance.text = `${today.adjusted.distance}m`; //meters
+    } else {
+        console.log(`Distance permission not shared by user`);
+        myDistance.text = `---`;
+    }
 }
 
 
@@ -82,37 +112,6 @@ if (HeartRateSensor) { //if device has a heart rate sensor, then get bpm
     console.log(`No heart rate detected.`);
     myBPM.text = `---`;
 }
-
-//STEPS:
-const mySteps = document.getElementById("mySteps");
-if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
-    console.log(`${today.adjusted.steps} Steps`);
-    mySteps.text = `${today.adjusted.steps}`;
-} else {
-    console.log(`Steps permission not shared by user`);
-    mySteps.text = `---`;
-}
-
-//CALS:
-const myCals = document.getElementById("myCals");
-if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
-    console.log(`${today.adjusted.calories} Calories`);
-    myCals.text = `${today.adjusted.calories}`;
-} else {
-    console.log(`Steps permission not shared by user`);
-    myCals.text = `---`;
-}
-
-//DISTANCE:
-const myDistance = document.getElementById("myDistance");
-if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
-    console.log(`${today.adjusted.distance} Distance Travelled`);
-    myDistance.text = `${today.adjusted.distance}m`; //meters
-} else {
-    console.log(`Distance permission not shared by user`);
-    myDistance.text = `---`;
-}
-
 
 //BATTERY:
 const myBattery = document.getElementById("myBattery");
