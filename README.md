@@ -1,3 +1,6 @@
+Downloadable from the FitBit storefront:
+    https://gallery.fitbit.com/details/dfd790a1-afc3-4d67-be5c-fb788e242759?key=5fcaea28-8d77-47eb-9472-caec440cece3
+
 # FitBit-Fallout-Watch
 A watch face for FitBit watches that is in the style of a PipBoy from Fallout. I use the FitBit Versa 2 and wanted to create a custom Fallout-esque interface.
 
