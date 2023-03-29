@@ -1,5 +1,5 @@
 <svg class="background">
-  <image href="fbsmall1.png" />
+  <image href="u2.png" />
   <text id="myTime" />
   <text id="myDate" />
   <text id="myBPM" />

@@ -1,7 +1,7 @@
 import clock from "clock";
 import * as document from "document";
 import { preferences } from "user-settings"; //get watch preferences for time & etc
-import { HeartRateSensor } from "heart-rate"; //get the bpm of the user 
+import { HeartRateSensor } from "heart-rate"; //get the bpm of the user
 import { me as appbit } from "appbit"; //get user
 import { today } from "user-activity"; //get the steps/distance/calories of the user
 import { battery } from "power"; //get the battery level of the device
@@ -88,7 +88,17 @@ clock.ontick = (evt) => {
     const myDistance = document.getElementById("myDistance");
     if (appbit.permissions.granted("access_activity")) { //permission to get activity from user
         console.log(`${today.adjusted.distance} Distance Travelled`);
-        myDistance.text = `${today.adjusted.distance}m`; //meters
+        let milesFromMeters = (today.adjusted.distance) * 0.000621371; //convert meters to miles: 1 meter == 0.000621371   =>   divide length value by 1609 for miles to meters   => multiply length in meters by 0.00062137
+        let kilometersFromMeters = (today.adjusted.distance) / 1000; //kilometers: 1 meter is 0.001 km  =>  meters / 1000
+
+        if (preferences.distance === "Metric") { //metric system (meters/kilometers)
+            myDistance.text = `${kilometersFromMeters}km`; //meters == m
+
+        } else { //imperial system (miles)
+            myDistance.text = `${parseFloat(milesFromMeters).toFixed(2)}mi`; //miles == mi
+
+        }
+        
     } else {
         console.log(`Distance permission not shared by user`);
         myDistance.text = `---`;
